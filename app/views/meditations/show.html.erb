@@ -12,7 +12,7 @@
 
 <p>
   <strong>File:</strong>
-  <%= @meditation.file %>
+  <%= image_tag(@meditation.file_url, :width => 600) if @meditation.file.present? %>
 </p>
 
 <%= link_to 'Edit', edit_meditation_path(@meditation) %> |
