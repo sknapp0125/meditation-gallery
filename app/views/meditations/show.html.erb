@@ -1,19 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @meditation.title %>
-</p>
+<div class="row">
+  <div class="col-xs-9">
+    <%= image_tag(@meditation.file_url, :width => "100%") if @meditation.file.present? %>
+  </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @meditation.description %>
-</p>
-
-<p>
-  <strong>File:</strong>
-  <%= image_tag(@meditation.file_url, :width => 600) if @meditation.file.present? %>
-</p>
-
-<%= link_to 'Edit', edit_meditation_path(@meditation) %> |
-<%= link_to 'Back', meditations_path %>
+  <div class="col-xs-3">
+    <p><b>Title: </b><%= @meditation.title %></p>
+    <p><b>Description: </b><%= @meditation.description %></p>
+    <p>
+      <%= link_to 'Edit', edit_meditation_path(@meditation) %> |
+      <%= link_to 'Delete', @meditation, confirm: 'Are you sure?', method: :delete %> |
+      <%= link_to 'Back', meditations_path %>
+    </p>
+  </div>
+</div>

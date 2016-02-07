@@ -6,7 +6,7 @@
   <div class="row">
     <% group.compact.each do |meditation| %>
       <div class="col-xs=4">
-        <%= image_tag meditation.file_url, :width => '100' if meditation.file.present? %>
+        <%= image_tag meditation.file_url, :width => '200' if meditation.file.present? %>
         <h4><%= link_to meditation.title, meditation %></h4>
         <%= meditation.description %>
       </div>
