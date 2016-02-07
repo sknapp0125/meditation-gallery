@@ -1,31 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Meditations</h1>
+<h1>Meditations</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>File</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @meditations.each do |meditation| %>
-      <tr>
-        <td><%= meditation.title %></td>
-        <td><%= meditation.description %></td>
-        <td><%= meditation.file %></td>
-        <td><%= link_to 'Show', meditation %></td>
-        <td><%= link_to 'Edit', edit_meditation_path(meditation) %></td>
-        <td><%= link_to 'Destroy', meditation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<% @meditations.in_groups_of(3) do |group| %>
+  <div class="row">
+    <% group.compact.each do |meditation| %>
+      <div class="col-xs=4">
+        <%= image_tag meditation.file_url, :width => '100' if meditation.file.present? %>
+        <h4><%= link_to meditation.title, meditation %></h4>
+        <%= meditation.description %>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Meditation', new_meditation_path %>
+  </div>
+<% end %>
