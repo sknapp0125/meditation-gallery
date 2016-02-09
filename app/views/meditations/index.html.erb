@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
-
+<center>
 <h1>Meditations</h1>
+</center>
 
 <% @meditations.in_groups_of(3) do |group| %>
   <div class="row">
     <% group.compact.each do |meditation| %>
-      <div class="col-xs=4">
+      <div class=" col-md-4 col-xs=4">
         <%= image_tag meditation.file_url, :width => '200' if meditation.file.present? %>
         <h4><%= link_to meditation.title, meditation %></h4>
         <%= meditation.description %>
