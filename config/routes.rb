@@ -1,12 +1,19 @@
 Rails.application.routes.draw do
+  get 'pages/welcome'
+
+  get 'pages/contact'
+
+  get 'pages/gallery'
+
   get 'pages/bio'
 
+  get 'pages/bio'
+ root 'pages#welcome'
   resources :meditations
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'pages#welcome'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
