@@ -1,13 +1,14 @@
 <p id="notice"><%= notice %></p>
+<%= image_tag @meditation.image.url(:medium) %>
 
 <div class="row">
   <div class="col-xs-9">
-    <%= image_tag(@meditation.file_url, :width => "100%") if @meditation.file.present? %>
   </div>
 
   <div class="col-xs-3">
     <p><b>Title: </b><%= @meditation.title %></p>
     <p><b>Description: </b><%= @meditation.description %></p>
+
     <p>
       <%= link_to 'Edit', edit_meditation_path(@meditation) %> |
       <%= link_to 'Delete', @meditation, confirm: 'Are you sure?', method: :delete %> |

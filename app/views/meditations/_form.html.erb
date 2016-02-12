@@ -1,4 +1,4 @@
-<%= form_for(@meditation) do |f| %>
+<%= form_for @meditation, html: { multipart: true } do |f| %>
   <% if @meditation.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@meditation.errors.count, "error") %> prohibited this meditation from being saved:</h2>
@@ -13,17 +13,17 @@
 
   <div class="form-group">
     <%= f.label :title %><br>
-    <%= f.text_field :title, class:'form-control' %>
+    <%= f.text_field :title, class: 'form-control' %>
   </div>
   <div class="form-group">
     <%= f.label :description %><br>
-    <%= f.text_area :description, class:'form-control' %>
+    <%= f.text_area :description, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :file %><br>
-    <%= f.file_field :file %>
+    <%= f.label :image %><br>
+    <%= f.file_field :image, class: 'form-control' %>
   </div>
   <div class="actions">
-    <%= f.submit class:'btn btn-default' %>
+    <%= f.submit class: 'btn btn-default' %>
   </div>
 <% end %>
