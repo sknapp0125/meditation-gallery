@@ -9,7 +9,7 @@
       <div class=" col-md-4 col-xs=4">
 
         <h4><%= link_to meditation.title, meditation %></h4>
-
+        <%= image_tag meditation.image.url(:thumb) %>
         <%= meditation.description %>
       </div>
     <% end %>
